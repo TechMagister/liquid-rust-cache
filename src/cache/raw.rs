@@ -30,7 +30,7 @@ impl Cache for RawCache {
         }
     }
 
-    fn set(&self, k: &String, v: String) {
+    fn set(&self, k: &String, v: &String) {
         let mut p = PathBuf::from(&self.path);
         p.push(k);
         let mut f = match File::create(p) {
@@ -44,7 +44,7 @@ impl Cache for RawCache {
 #[test]
 fn hardcache() {
     let cache = RawCache::new("./tests/tmp".to_string());
-    cache.set(&"testkey".to_string(), "data".to_string());
+    cache.set(&"testkey".to_string(), &"data".to_string());
 
     assert_eq!(cache.get(&"fakekey".to_string()), None);
     assert_eq!(cache.get(&"testkey".to_string()), Some("data".to_string()));

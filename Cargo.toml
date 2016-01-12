@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Arnaud Fernandés <arnaud.fernandes@laposte.net>"]
 
 [dependencies]
+redis = "0.5.2"
 
 [dependencies.liquid]
 git = "https://github.com/FerarDuanSednan/liquid-rust.git"
