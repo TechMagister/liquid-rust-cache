@@ -1,12 +1,12 @@
 use std::fs::File;
 use std::path::PathBuf;
 
-use std::io::{Read,Write};
+use std::io::{Read, Write};
 
 use cache::Cache;
 
 pub struct RawCache {
-    path: String
+    path: String,
 }
 
 impl RawCache {
@@ -16,26 +16,26 @@ impl RawCache {
 }
 
 impl Cache for RawCache {
-    fn get(&self, k : &String) -> Option<String> {
+    fn get(&self, k: &String) -> Option<String> {
         let mut p = PathBuf::from(&self.path);
         p.push(k);
         let mut f = match File::open(p) {
             Ok(f) => f,
-            Err(_) => return None
+            Err(_) => return None,
         };
         let mut buffer = String::new();
         match f.read_to_string(&mut buffer) {
             Ok(_) => Some(buffer),
-            Err(_) => None
+            Err(_) => None,
         }
     }
 
-    fn set(&self, k : &String, v: String) {
+    fn set(&self, k: &String, v: String) {
         let mut p = PathBuf::from(&self.path);
         p.push(k);
         let mut f = match File::create(p) {
             Ok(f) => f,
-            Err(_) => return
+            Err(_) => return,
         };
         f.write_all(v.as_bytes()).unwrap();
     }
