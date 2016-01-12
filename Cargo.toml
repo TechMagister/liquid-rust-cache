@@ -1,0 +1,9 @@
+[package]
+name = "liquid-rust-cache"
+version = "0.1.0"
+authors = ["Arnaud Fernandés <arnaud.fernandes@laposte.net>"]
+
+[dependencies]
+
+[dependencies.liquid]
+git = "https://github.com/FerarDuanSednan/liquid-rust.git"
