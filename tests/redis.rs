@@ -1,6 +1,6 @@
 extern crate liquid;
 extern crate redis;
-extern crate liquid_rust_cache as lrc;
+extern crate liquid_cache as lrc;
 
 use std::sync::{Arc, Mutex};
 

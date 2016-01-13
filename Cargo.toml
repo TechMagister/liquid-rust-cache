@@ -1,7 +1,12 @@
 [package]
-name = "liquid-rust-cache"
+name = "liquid-cache"
 version = "0.1.0"
 authors = ["Arnaud Fernandés <arnaud.fernandes@laposte.net>"]
+description = "A cache block for the liquid templating engine"
+repository = "https://github.com/FerarDuanSednan/liquid-rust-cache"
+readme = "README.md"
+keywords = ["liquid", "template", "templating", "language", "html", "cache"]
+license = "MIT"
 
 [dependencies]
 redis = "0.5.2"
