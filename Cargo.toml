@@ -8,6 +8,10 @@ readme = "README.md"
 keywords = ["liquid", "template", "templating", "language", "html", "cache"]
 license = "MIT"
 
+exclude = [
+  "tests/tmp/*"
+]
+
 [dependencies]
 redis = "0.5.2"
 
