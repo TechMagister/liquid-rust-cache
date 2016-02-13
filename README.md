@@ -24,7 +24,7 @@ let text = r#"
 "#;
 
 let mut options : LiquidOptions = Default::default();
-options.blocks.insert("cache".to_string(), Box::new(RawCacheBlock::new("./tests/tmp")) as Box<Block>); 
+options.blocks.insert("cache".to_string(), Box::new(RawCacheBlock::new("./tests/tmp")));
 
 let template = parse(&text, &mut options).unwrap();
 
@@ -53,7 +53,7 @@ let text = r#"
 "#;
 
 let mut options : LiquidOptions = Default::default();
-options.blocks.insert("cache".to_string(), Box::new(RedisCacheBlock::new(con.clone())) as Box<Block>); 
+options.blocks.insert("cache".to_string(), Box::new(RedisCacheBlock::new(con.clone())));
 
 let template = parse(&text, &mut options).unwrap();
 
