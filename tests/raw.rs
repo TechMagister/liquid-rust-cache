@@ -1,7 +1,7 @@
 extern crate liquid;
 extern crate liquid_cache as lrc;
 
-use liquid::{Renderable, Block, LiquidOptions, parse, Context, Value};
+use liquid::{Renderable, LiquidOptions, parse, Context, Value};
 
 use lrc::{RawCacheBlock};
 
@@ -19,9 +19,9 @@ fn raw_cache() {
     "#;
 
     let mut options : LiquidOptions = Default::default();
-    options.blocks.insert("cache".to_string(), Box::new(RawCacheBlock::new("./tests/tmp")) as Box<Block>); 
+    options.blocks.insert("cache".to_string(), RawCacheBlock::new("./tests/tmp"));
 
-    let template = parse(&text, &mut options).unwrap();
+    let template = parse(&text, options).unwrap();
 
     let mut data = Context::new();
     data.set_val("vec", Value::Array(vec));

@@ -4,7 +4,7 @@ extern crate liquid_cache as lrc;
 
 use std::sync::{Arc, Mutex};
 
-use liquid::{Renderable, Block, LiquidOptions, parse, Context, Value};
+use liquid::{Renderable, LiquidOptions, parse, Context, Value};
 
 use lrc::{RedisCacheBlock};
 
@@ -27,9 +27,9 @@ fn redis_cache() {
     "#;
 
     let mut options : LiquidOptions = Default::default();
-    options.blocks.insert("cache".to_string(), Box::new(RedisCacheBlock::new(con.clone())) as Box<Block>); 
+    options.blocks.insert("cache".to_string(), RedisCacheBlock::new(con.clone()));
 
-    let template = parse(&text, &mut options).unwrap();
+    let template = parse(&text, options).unwrap();
 
     let mut data = Context::new();
     data.set_val("vec", Value::Array(vec));
