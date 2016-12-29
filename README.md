@@ -1,7 +1,7 @@
 # liquid-cache
 Cache block for the liquid templating engine ( https://github.com/FerarDuanSednan/liquid-rust )
 
-**Still basic and unstable, this work is currently under development**
+**Still basic, PR are welcome, I'm not anymore improving this.**
 
 TODO
 -------
